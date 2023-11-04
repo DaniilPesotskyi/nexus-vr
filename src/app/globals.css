@@ -21,6 +21,9 @@
 
   /* primary */
   --primary-clr: #b3ff00;
+
+  /* other */
+  --border-radius: 10px;
 }
 
 /* @media (prefers-color-scheme: dark) {
