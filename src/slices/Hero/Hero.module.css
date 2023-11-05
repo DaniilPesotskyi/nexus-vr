@@ -1,0 +1,177 @@
+.container {
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.heading {
+  background: linear-gradient(
+    90deg,
+    #ff7a00 0.02%,
+    #db00ff 99.98%,
+    #db00ff 99.98%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-align: center;
+  font-family: "Epilogue", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.image {
+  display: block;
+  width: 320px;
+  height: 290px;
+  margin: 0 auto;
+}
+
+.subtitleWrap {
+  width: 100%;
+  padding: 40px 0px;
+  margin: 0px auto 40px auto;
+
+  background-color: var(--main-dark-bg-clr);
+  border-radius: 60px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: var(--main-light-text-clr);
+}
+
+.title {
+  display: block;
+
+  background: linear-gradient(90deg, #29f4f4 -5.28%, #2400ff 105.94%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.body {
+  margin-bottom: 35px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: var(--main-dark-text-clr);
+}
+
+.btn {
+  display: block;
+
+  height: 55px;
+  padding: 0px 55px;
+  margin: 0 auto 80px auto;
+
+  border: 1px solid var(--main-dark-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main--dark-text-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+  background-color: var(--primary-clr);
+  box-shadow: var(--box-shadow);
+}
+
+@media screen and (min-width: 480px) {
+  .heading {
+    font-size: 48px;
+  }
+
+  .image {
+    width: 440px;
+    height: 395px;
+  }
+
+  .subtitleWrap {
+    margin-bottom: 60px;
+  }
+
+  .subtitle {
+    font-size: 32px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .body {
+    font-size: 24px;
+    margin-bottom: 55px;
+  }
+
+  .btn {
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 80px;
+  }
+
+  .image {
+    width: 575px;
+    height: 510px;
+  }
+
+  .subtitle {
+    font-size: 36px;
+  }
+
+  .title {
+    font-size: 64px;
+  }
+
+  .body {
+    font-size: 32px;
+    margin-bottom: 65px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: var(--container-large);
+    margin: 0 auto;
+    padding: 0px 25px;
+  }
+
+  .heading {
+    font-size: 90px;
+  }
+
+  .image {
+    width: 760px;
+    height: 665px;
+  }
+
+  .subtitleWrap {
+    width: 730px;
+  }
+
+  .btn {
+    margin-bottom: 110px;
+  }
+}

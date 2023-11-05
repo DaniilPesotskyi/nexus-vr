@@ -1,0 +1,103 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Unlock Boundless World With Virtual Reality",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"secondary_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "THE FUTURE",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"secondary_subtitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Welcome to",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"body_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Virtual reality from a fantastic dream came true today, providing us with a completely new type of leisure - stunning, impressive, driving. Now everyone can dive into an amazing digital world, where it is possible to interact with objects and other worlds.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					],
+					[
+						"image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+								"width": 3958,
+								"height": 3958
+							},
+							"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?rect=0%2C565%2C3958%2C2827&w=350&h=250",
+							"width": 350,
+							"height": 250,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 565
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]
