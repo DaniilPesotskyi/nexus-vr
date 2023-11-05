@@ -2,6 +2,14 @@
   padding: 50px 0px 60px 0px;
 }
 
+.section.dark {
+  background-color: var(--main-dark-bg-clr);
+}
+
+.section.light {
+  background-color: var(--main-light-bg-clr);
+}
+
 .container {
   width: 100%;
   padding: 20px;
