@@ -205,7 +205,7 @@ interface GameDocumentData {
 export type GameDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<GameDocumentData>, "game", Lang>;
 
-type HomepageDocumentDataSlicesSlice = AdvantagesSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice = GamesSlice | AdvantagesSlice | HeroSlice;
 
 /**
  * Content for homepage documents

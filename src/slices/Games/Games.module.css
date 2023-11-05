@@ -1,0 +1,30 @@
+
+
+
+/* BTN */
+.btn {
+  display: block;
+
+  height: 55px;
+  padding: 0px 55px;
+  margin: 0 auto 80px auto;
+
+  border: 1px solid var(--main-light-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main-light-text-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+  background-color: var(--primary-clr);
+  box-shadow: var(--box-shadow);
+}

@@ -18,6 +18,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "games": {
+              "type": "SharedSlice"
+            },
             "advantages": {
               "type": "SharedSlice"
             },

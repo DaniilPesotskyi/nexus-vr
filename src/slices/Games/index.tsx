@@ -1,22 +1,62 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import css from "./Games.module.css";
 
-/**
- * Props for `Games`.
- */
+import { Content, isFilled } from "@prismicio/client";
+import { createClient } from "@/prismicio";
+
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+
+import Section from "@/components/Section/Section";
+import Heading from "@/components/Heading/Heading";
+
 export type GamesProps = SliceComponentProps<Content.GamesSlice>;
 
-/**
- * Component for "Games" Slices.
- */
-const Games = ({ slice }: GamesProps): JSX.Element => {
+const Games = async ({ slice }: GamesProps): Promise<JSX.Element> => {
+  const client = createClient();
+
+  const games = await Promise.all(
+    slice.items.map((item) => {
+      if (isFilled.contentRelationship(item.game) && item.game.uid) {
+        return client.getByUID("game", item.game.uid);
+      }
+    })
+  );
+
   return (
-    <section
+    <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      style="dark"
     >
-      Placeholder component for games (variation: {slice.variation}) Slices
-    </section>
+      <Heading subtitle={slice.primary.subtitle} title={slice.primary.title} />
+
+      {/* SLIDER */}
+      <div className={css.wrap}>
+        <div className={css.slider}>
+          <ul className={css.list}>
+            {games.map((item, index) => (
+              <li key={index}>
+                <h3>{item?.data.title}</h3>
+                <div className={css.overlay}>
+                  <PrismicRichText field={item?.data.description} />
+                  <div className={css.actions}>
+                    <button type="button" className={css.bookingBtn}>
+                      BOOKING
+                    </button>
+                    <button type="button" className={css.detailsBtn}>
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <button type="button" className={css.btn}>
+        See all games
+      </button>
+    </Section>
   );
 };
 
