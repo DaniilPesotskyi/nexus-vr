@@ -1,1 +1,60 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
+.item {
+  display: flex;
+  align-items: top;
+  gap: 30px;
+
+  width: 100%;
+  padding: 25px 0px;
+}
+
+.item:nth-child(even) {
+    margin-left: auto;
+}
+
+.icon {
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+  stroke: var(--main-light-stroke-clr);
+}
+
+.itemTitle {
+  margin-bottom: 15px;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--main-light-text-clr);
+}
+
+.itemBody {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  color: var(--secondary-text-clr);
+}
+
+@media screen and (min-width: 480px) {
+  .itemTitle {
+    margin-bottom: 30px;
+
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    width: 540px;
+    padding: 25px;
+  }
+
+  .itemTitle {
+    font-size: 32px;
+  }
+}
