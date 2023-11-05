@@ -144,6 +144,67 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Game documents
+ */
+interface GameDocumentData {
+  /**
+   * Quantity field in *Game*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: game.quantity
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  quantity: prismic.NumberField;
+
+  /**
+   * Title field in *Game*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: game.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Game*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: game.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Poster field in *Game*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: game.poster
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  poster: prismic.ImageField<never>;
+}
+
+/**
+ * Game document from Prismic
+ *
+ * - **API ID**: `game`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GameDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<GameDocumentData>, "game", Lang>;
+
 type HomepageDocumentDataSlicesSlice = AdvantagesSlice | HeroSlice;
 
 /**
@@ -312,6 +373,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FooterDocument
+  | GameDocument
   | HomepageDocument
   | SettingsDocument;
 
@@ -404,6 +466,73 @@ export type AdvantagesSlice = prismic.SharedSlice<
   "advantages",
   AdvantagesSliceVariation
 >;
+
+/**
+ * Primary content in *Games → Primary*
+ */
+export interface GamesSliceDefaultPrimary {
+  /**
+   * Subtitle field in *Games → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: games.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Title field in *Games → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: games.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Games → Items*
+ */
+export interface GamesSliceDefaultItem {
+  /**
+   * Game field in *Games → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: games.items[].game
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  game: prismic.ContentRelationshipField<"game">;
+}
+
+/**
+ * Default variation for Games Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GamesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GamesSliceDefaultPrimary>,
+  Simplify<GamesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Games*
+ */
+type GamesSliceVariation = GamesSliceDefault;
+
+/**
+ * Games Shared Slice
+ *
+ * - **API ID**: `games`
+ * - **Description**: Games
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GamesSlice = prismic.SharedSlice<"games", GamesSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -517,6 +646,8 @@ declare module "@prismicio/client" {
       FooterDocumentDataContactsItem,
       FooterDocumentDataSocialsItem,
       FooterDocumentDataAuthorItem,
+      GameDocument,
+      GameDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -529,6 +660,11 @@ declare module "@prismicio/client" {
       AdvantagesSliceDefaultItem,
       AdvantagesSliceVariation,
       AdvantagesSliceDefault,
+      GamesSlice,
+      GamesSliceDefaultPrimary,
+      GamesSliceDefaultItem,
+      GamesSliceVariation,
+      GamesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
