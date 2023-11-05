@@ -144,7 +144,7 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = AdvantagesSlice | HeroSlice;
 
 /**
  * Content for homepage documents
@@ -316,6 +316,96 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *Advantages → Primary*
+ */
+export interface AdvantagesSliceDefaultPrimary {
+  /**
+   * Subtitle field in *Advantages → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advantages.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Title field in *Advantages → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advantages.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Advantages → Items*
+ */
+export interface AdvantagesSliceDefaultItem {
+  /**
+   * Icon field in *Advantages → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advantages.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<"Rotate" | "Lock" | "Online">;
+
+  /**
+   * Title field in *Advantages → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advantages.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Body field in *Advantages → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: advantages.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Advantages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AdvantagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AdvantagesSliceDefaultPrimary>,
+  Simplify<AdvantagesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Advantages*
+ */
+type AdvantagesSliceVariation = AdvantagesSliceDefault;
+
+/**
+ * Advantages Shared Slice
+ *
+ * - **API ID**: `advantages`
+ * - **Description**: Advantages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AdvantagesSlice = prismic.SharedSlice<
+  "advantages",
+  AdvantagesSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -434,6 +524,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      AdvantagesSlice,
+      AdvantagesSliceDefaultPrimary,
+      AdvantagesSliceDefaultItem,
+      AdvantagesSliceVariation,
+      AdvantagesSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
