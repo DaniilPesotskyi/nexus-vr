@@ -1,6 +1,16 @@
-.subtitle {
-  margin-bottom: 25px;
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 
+  margin-bottom: 50px;
+}
+
+.wrap.rev {
+  flex-direction: column-reverse;
+}
+
+.subtitle {
   font-family: "Epilogue", sans-serif;
   font-size: 24px;
   text-align: center;
@@ -22,6 +32,10 @@
 }
 
 @media screen and (min-width: 480px) {
+  .wrap {
+    margin-bottom: 70px;
+  }
+
   .subtitle {
     font-size: 32px;
   }
@@ -32,6 +46,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .wrap {
+    margin-bottom: 100px;
+  }
+
   .subtitle {
     font-size: 36px;
   }

@@ -8,6 +8,7 @@ import { RichTextField } from "@prismicio/client";
 interface IProps {
   subtitle: RichTextField;
   title: RichTextField;
+  style?: "normal" | "reverse";
   subtitleStyles?: string;
   titleStyles?: string;
 }
@@ -17,9 +18,10 @@ const Heading: React.FC<IProps> = ({
   title,
   subtitleStyles,
   titleStyles,
+  style = "normal",
 }) => {
   return (
-    <>
+    <div className={clsx(css.wrap, style === "reverse" && css.rev)}>
       <PrismicRichText
         field={subtitle}
         components={{
@@ -36,7 +38,7 @@ const Heading: React.FC<IProps> = ({
           ),
         }}
       />
-    </>
+    </div>
   );
 };
 
