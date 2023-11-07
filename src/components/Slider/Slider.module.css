@@ -1,0 +1,44 @@
+.wrap {
+  width: calc(100% - 10px);
+  margin: 0px auto 60px auto;
+}
+
+.slidesContainer {
+  margin-bottom: 25px;
+
+  /* overflow-x: scroll; */
+}
+
+.list {
+  display: flex;
+  /* gap: 30px; */
+
+  transition: all var(--transition-duration);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.buttonDot {
+  width: 20px;
+  height: 10px;
+
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--main-light-bg-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.buttonDot.active {
+  background-color: var(--primary-clr);
+  box-shadow: var(--box-shadow);
+}

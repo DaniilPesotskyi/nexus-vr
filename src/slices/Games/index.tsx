@@ -5,7 +5,6 @@ import { createClient } from "@/prismicio";
 
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-import Section from "@/components/Section/Section";
 import Heading from "@/components/Heading/Heading";
 import Slider from "@/components/Slider/Slider";
 
@@ -23,20 +22,25 @@ const Games = async ({ slice }: GamesProps): Promise<JSX.Element> => {
   );
 
   return (
-    <Section
+    <section
+      className={css.section}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      style="dark"
     >
-      <Heading subtitle={slice.primary.subtitle} title={slice.primary.title} />
+      <div className={css.container}>
+        <Heading
+          subtitle={slice.primary.subtitle}
+          title={slice.primary.title}
+        />
 
-      {/* SLIDER */}
-      <Slider items={games} />
+        {/* SLIDER */}
+        <Slider items={games} />
 
-      <button type="button" className={css.btn}>
-        See all games
-      </button>
-    </Section>
+        <button type="button" className={css.btn}>
+          See all games
+        </button>
+      </div>
+    </section>
   );
 };
 

@@ -1,5 +1,12 @@
+.section {
+  padding: 50px 0px 60px 0px;
+  background-color: var(--main-dark-bg-clr);
+}
 
-
+.container {
+  width: 100%;
+  padding: 20px;
+}
 
 /* BTN */
 .btn {
@@ -27,4 +34,17 @@
   border: 1px solid transparent;
   background-color: var(--primary-clr);
   box-shadow: var(--box-shadow);
+}
+
+@media screen and (min-width: 480px) {
+  .section {
+    padding: 60px 0px 75px 0px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    margin: 0 auto;
+    padding: 0px 25px;
+  }
 }
