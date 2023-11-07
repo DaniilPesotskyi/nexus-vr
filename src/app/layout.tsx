@@ -4,7 +4,7 @@ import { Roboto, Epilogue } from "next/font/google";
 
 import type { Metadata } from "next";
 import { createClient } from "@/prismicio";
-import clsx from "clsx";
+import cn from "classnames";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={clsx(roboto.className, epilogue.className)}>
+      <body className={cn(roboto.className, epilogue.className)}>
         <Header />
         {children}
         <Footer />

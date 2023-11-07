@@ -1,6 +1,6 @@
 import css from "./Section.module.css";
 
-import clsx from "clsx";
+import cn from "classnames";
 
 interface IProps {
   as?: React.ElementType;
@@ -17,7 +17,7 @@ const Section: React.FC<IProps> = ({
 }) => {
   return (
     <Comp
-      className={clsx(
+      className={cn(
         css.section,
         className,
         style === "dark" ? css.dark : css.light

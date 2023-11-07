@@ -1,6 +1,6 @@
 import css from "./Heading.module.css";
 
-import clsx from "clsx";
+import cn from "classnames";
 
 import { PrismicRichText } from "@prismicio/react";
 import { RichTextField } from "@prismicio/client";
@@ -21,12 +21,12 @@ const Heading: React.FC<IProps> = ({
   style = "normal",
 }) => {
   return (
-    <div className={clsx(css.wrap, style === "reverse" && css.rev)}>
+    <div className={cn(css.wrap, style === "reverse" && css.rev)}>
       <PrismicRichText
         field={subtitle}
         components={{
           paragraph: ({ children }) => (
-            <p className={clsx(css.subtitle, subtitleStyles)}>{children}</p>
+            <p className={cn(css.subtitle, subtitleStyles)}>{children}</p>
           ),
         }}
       />
@@ -34,7 +34,7 @@ const Heading: React.FC<IProps> = ({
         field={title}
         components={{
           heading2: ({ children }) => (
-            <h2 className={clsx(css.title, titleStyles)}>{children}</h2>
+            <h2 className={cn(css.title, titleStyles)}>{children}</h2>
           ),
         }}
       />
