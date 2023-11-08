@@ -2,7 +2,12 @@
 
 import css from "./Slider.module.css";
 
-import { useEffect, useRef, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import Slider from "react-slick";
+import { useState } from "react";
+
 import cn from "classnames";
 
 import { GameDocument } from "@/../../prismicio-types";
@@ -12,56 +17,42 @@ interface IProps {
   items: Array<GameDocument<string> | undefined>;
 }
 
-const Slider: React.FC<IProps> = ({ items }) => {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const slideRef: React.RefObject<HTMLLIElement> = useRef(null);
-  const slideWidth = slideRef.current?.offsetWidth || 0;
+const MySlider: React.FC<IProps> = ({ items }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  // setTimeout(() => {
-  //   if (currentSlide < items.length - 1) {
-  //     setCurrentSlide(currentSlide + 1);
-  //   } else {
-  //     setCurrentSlide(0);
-  //   }
-  // }, 3000);
-
-  useEffect(() => {
-    console.log(currentSlide);
-  }, [currentSlide]);
+  const options = {
+    appendDots: (dots: any) => <ul className={css.dots}>{dots}</ul>,
+    customPaging: (i: number) => (
+      <li key={i}>
+        <button
+          type="button"
+          className={cn(css.buttonDot, activeSlide === i && css.active)}
+        ></button>
+      </li>
+    ),
+    afterChange: (currentSlide: number) => {
+      setActiveSlide(currentSlide);
+    },
+    arrows: false,
+    dots: true,
+    infinite: true,
+    centerMode: true,
+    speed: 250,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+  };
 
   return (
     <div className={css.wrap}>
-      <div className={css.slidesContainer}>
-        <ul
-          className={css.list}
-          style={{
-            transform: `translateX(-${currentSlide * slideWidth}px)`,
-          }}
-        >
-          {items.map((item, index) => (
-            <li ref={slideRef} key={index}>
-              <GameCard item={item} />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <ul className={css.dots}>
+      <Slider {...options} dotsClass={css.dots}>
         {items.map((item, index) => (
-          <li key={index} className={css.dot}>
-            <button
-              type="button"
-              className={cn(
-                css.buttonDot,
-                currentSlide === index && css.active
-              )}
-              onClick={() => setCurrentSlide(index)}
-            ></button>
-          </li>
+          <div key={index} className={css.sliderItem}>
+            <GameCard item={item} />
+          </div>
         ))}
-      </ul>
+      </Slider>
     </div>
   );
 };
 
-export default Slider;
+export default MySlider;

@@ -1,28 +1,15 @@
 .wrap {
-  width: calc(100% - 10px);
+  width: 100%;
   margin: 0px auto 60px auto;
-}
-
-.slidesContainer {
-  margin-bottom: 25px;
-
-  /* overflow-x: scroll; */
-}
-
-.list {
-  display: flex;
-  /* gap: 30px; */
-
-  transition: all var(--transition-duration);
 }
 
 .dots {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
   width: fit-content;
-  margin: 0 auto;
+  margin: 40px auto 0px auto;
 }
 
 .buttonDot {
