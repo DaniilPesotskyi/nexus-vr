@@ -9,7 +9,6 @@ import "swiper/css/navigation";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import cn from "classnames";
 
 import { GameDocument } from "@/../../prismicio-types";
 import GameCard from "../GameCard/GameCard";
