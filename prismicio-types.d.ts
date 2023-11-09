@@ -205,7 +205,11 @@ interface GameDocumentData {
 export type GameDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<GameDocumentData>, "game", Lang>;
 
-type HomepageDocumentDataSlicesSlice = GamesSlice | AdvantagesSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | RulesSlice
+  | GamesSlice
+  | AdvantagesSlice
+  | HeroSlice;
 
 /**
  * Content for homepage documents
@@ -631,6 +635,95 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Rules → Primary*
+ */
+export interface RulesSliceDefaultPrimary {
+  /**
+   * Subtitle field in *Rules → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rules.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Title field in *Rules → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rules.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Rules → Items*
+ */
+export interface RulesSliceDefaultItem {
+  /**
+   * Icon field in *Rules → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rules.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    "Lock" | "Alcohol" | "Limit" | "Children" | "Time" | "Pregnant"
+  >;
+
+  /**
+   * Title field in *Rules → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rules.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Body field in *Rules → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rules.items[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Rules Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RulesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RulesSliceDefaultPrimary>,
+  Simplify<RulesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Rules*
+ */
+type RulesSliceVariation = RulesSliceDefault;
+
+/**
+ * Rules Shared Slice
+ *
+ * - **API ID**: `rules`
+ * - **Description**: Rules
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RulesSlice = prismic.SharedSlice<"rules", RulesSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -670,6 +763,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultItem,
       HeroSliceVariation,
       HeroSliceDefault,
+      RulesSlice,
+      RulesSliceDefaultPrimary,
+      RulesSliceDefaultItem,
+      RulesSliceVariation,
+      RulesSliceDefault,
     };
   }
 }

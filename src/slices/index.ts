@@ -6,4 +6,5 @@ export const components = {
   advantages: dynamic(() => import("./Advantages")),
   games: dynamic(() => import("./Games")),
   hero: dynamic(() => import("./Hero")),
+  rules: dynamic(() => import("./Rules")),
 };
