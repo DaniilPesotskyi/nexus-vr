@@ -652,12 +652,12 @@ export interface RulesSliceDefaultPrimary {
   /**
    * Title field in *Rules → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: rules.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField;
+  title: prismic.TitleField;
 }
 
 /**
@@ -679,12 +679,12 @@ export interface RulesSliceDefaultItem {
   /**
    * Title field in *Rules → Items*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: rules.items[].title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.RichTextField;
+  title: prismic.TitleField;
 
   /**
    * Body field in *Rules → Items*

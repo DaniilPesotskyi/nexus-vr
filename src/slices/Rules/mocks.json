@@ -9,10 +9,8 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "of our club",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Veniam labore mollit eu eiusmod."
+						}
 					}
 				]
 			},
@@ -20,12 +18,10 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "paragraph",
+						"type": "heading2",
 						"content": {
-							"text": "Rules",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Frighten"
+						}
 					}
 				]
 			}
@@ -48,12 +44,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Password",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Those"
+									}
 								}
 							]
 						}
@@ -66,10 +60,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "To enter the club you have to know the phrase-password. You can find it out using our chat bot for Telegram",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Et veniam incididunt anim ipsum proident sint culpa mollit do dolor. Anim do ipsum quis eiusmod laborum exercitation nulla cillum ut nostrud consectetur. Deserunt id cillum tempor excepteur magna cupidatat anim irure Lorem enim eiusmod eiusmod consequat labore culpa."
+									}
 								}
 							]
 						}
@@ -93,12 +85,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Alcohol",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Nearer"
+									}
 								}
 							]
 						}
@@ -111,10 +101,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "It is forbidden to visit the club premises in the possession and under the influence of alcohol or narcotics.",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Ad excepteur dolor ex. Lorem cillum velit esse occaecat aliqua."
+									}
 								}
 							]
 						}
@@ -138,12 +126,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Age limit",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Period"
+									}
 								}
 							]
 						}
@@ -156,10 +142,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Our activities are not recommended for children under 10 years old due to equipment technical features and the maturity perception of children.",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Cupidatat culpa veniam aliquip id eu ad consequat consectetur cillum eu incididunt amet proident. Magna consequat aute id quis."
+									}
 								}
 							]
 						}
@@ -183,12 +167,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Children supervision required",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Somewhere"
+									}
 								}
 							]
 						}
@@ -201,10 +183,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Children under 15 years old must be accompanied by at least one adult.",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Sit tempor in et incididunt laboris veniam ipsum. Cupidatat aliquip minim esse deserunt cillum nostrud aute duis."
+									}
 								}
 							]
 						}
@@ -228,12 +208,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Be on time",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Process"
+									}
 								}
 							]
 						}
@@ -246,10 +224,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Please arrive at least 5 minutes before your appointment. In case of delay please inform the Club.",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "In ipsum aliqua tempor ea laborum ullamco laborum. Adipisicing tempor esse nisi labore minim laborum occaecat incididunt duis excepteur velit sint."
+									}
 								}
 							]
 						}
@@ -273,12 +249,10 @@
 							"__TYPE__": "StructuredTextContent",
 							"value": [
 								{
-									"type": "paragraph",
+									"type": "heading3",
 									"content": {
-										"text": "Pregnant",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Slide"
+									}
 								}
 							]
 						}
@@ -291,10 +265,8 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Our activities are not recommended for pregnant and emotionally sensitive customers.",
-										"spans": []
-									},
-									"direction": "ltr"
+										"text": "Nostrud anim do tempor. Adipisicing culpa id elit ullamco laborum qui occaecat sunt amet excepteur. Eu esse veniam mollit nulla ullamco."
+									}
 								}
 							]
 						}
