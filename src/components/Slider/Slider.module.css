@@ -12,6 +12,10 @@
   margin: 40px auto 0px auto;
 }
 
+.sliderItem {
+  width: 320px;
+}
+
 .buttonDot {
   width: 20px;
   height: 10px;
@@ -28,4 +32,10 @@
 .buttonDot.active {
   background-color: var(--primary-clr);
   box-shadow: var(--box-shadow);
+}
+
+@media screen and (min-width: 480px) {
+  .sliderItem {
+    width: 350px;
+  }
 }
