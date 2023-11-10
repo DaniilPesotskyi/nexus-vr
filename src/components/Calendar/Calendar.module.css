@@ -1,0 +1,13 @@
+.wrap {
+  width: 100%;
+}
+
+.months {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.monthsBtn {
+}

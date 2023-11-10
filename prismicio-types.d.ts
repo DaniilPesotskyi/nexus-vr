@@ -472,6 +472,76 @@ export type AdvantagesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Booking → Primary*
+ */
+export interface BookingSliceDefaultPrimary {
+  /**
+   * Subtitle field in *Booking → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Title field in *Booking → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Booking → Items*
+ */
+export interface BookingSliceDefaultItem {
+  /**
+   * Calendar field in *Booking → Items*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.items[].calendar
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  calendar: prismic.TimestampField;
+}
+
+/**
+ * Default variation for Booking Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BookingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BookingSliceDefaultPrimary>,
+  Simplify<BookingSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Booking*
+ */
+type BookingSliceVariation = BookingSliceDefault;
+
+/**
+ * Booking Shared Slice
+ *
+ * - **API ID**: `booking`
+ * - **Description**: Booking
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BookingSlice = prismic.SharedSlice<
+  "booking",
+  BookingSliceVariation
+>;
+
+/**
  * Primary content in *Games → Primary*
  */
 export interface GamesSliceDefaultPrimary {
@@ -753,6 +823,11 @@ declare module "@prismicio/client" {
       AdvantagesSliceDefaultItem,
       AdvantagesSliceVariation,
       AdvantagesSliceDefault,
+      BookingSlice,
+      BookingSliceDefaultPrimary,
+      BookingSliceDefaultItem,
+      BookingSliceVariation,
+      BookingSliceDefault,
       GamesSlice,
       GamesSliceDefaultPrimary,
       GamesSliceDefaultItem,
