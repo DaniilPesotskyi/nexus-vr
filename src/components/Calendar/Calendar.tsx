@@ -31,6 +31,7 @@ const Calendar: React.FC = () => {
   const getMonthDays = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
+    const today = new Date();
     const firstDay = new Date(year, month, 0);
     const lastDay = new Date(year, month + 1, 0);
 
@@ -40,21 +41,68 @@ const Calendar: React.FC = () => {
       days.push(null);
     }
     for (let i = 1; i <= lastDay.getDate(); i++) {
-      days.push(new Date(year, month, i));
+      const day = new Date(year, month, i);
+
+      const isBeforeToday =
+        day.getTime() < today.getTime() && day.getDate() !== today.getDate();
+
+      const isToday =
+        day.getDate() === today.getDate() &&
+        day.getMonth() === today.getMonth() &&
+        day.getFullYear() === today.getFullYear();
+
+      days.push({
+        date: day,
+        isBeforeToday: isBeforeToday,
+        isToday: isToday,
+      });
     }
 
     return days;
+  };
+
+  const getMonthName = (number: number): string => {
+    switch (number) {
+      case 1:
+        return "January";
+      case 2:
+        return "February";
+      case 3:
+        return "March";
+      case 4:
+        return "April";
+      case 5:
+        return "May";
+      case 6:
+        return "June";
+      case 7:
+        return "July";
+      case 8:
+        return "August";
+      case 9:
+        return "September";
+      case 10:
+        return "October";
+      case 11:
+        return "November";
+      case 12:
+        return "December";
+      default:
+        return "";
+    }
   };
 
   return (
     <div className={css.wrap}>
       <div className={css.months}>
         <button onClick={handlePrevMonth} className={css.monthsBtn}>
-          prev
+          <ArrowIcon className={css.icon} />
         </button>
-        <span className={css.monthTitle}>November</span>
+        <span className={css.monthTitle}>
+          {getMonthName(currentDate.getMonth() + 1)}
+        </span>
         <button onClick={handleNextMonth} className={css.monthsBtn}>
-          next
+          <ArrowIcon className={css.icon} />
         </button>
       </div>
       <table className={css.calendar}>
@@ -75,8 +123,15 @@ const Calendar: React.FC = () => {
               {week.map((day, index) => (
                 <>
                   {day ? (
-                    <td className={css.dayCell} key={index}>
-                      {day.getDate()}
+                    <td
+                      className={cn(
+                        css.dayCell,
+                        day.isBeforeToday && css.disabled,
+                        day.isToday && css.active
+                      )}
+                      key={index}
+                    >
+                      {day.date.getDate()}
                     </td>
                   ) : (
                     <td className={css.emptyCell} key={index}>
@@ -94,3 +149,21 @@ const Calendar: React.FC = () => {
 };
 
 export default Calendar;
+
+function ArrowIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        d="M14 7l-5 5 5 5"
+      ></path>
+    </svg>
+  );
+}
