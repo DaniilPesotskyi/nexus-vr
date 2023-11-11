@@ -20,13 +20,22 @@ const Calendar: React.FC = () => {
     );
   };
 
+  function chunkArray<T>(array: T[], size: number) {
+    const chunkedArray = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunkedArray.push(array.slice(i, i + size));
+    }
+    return chunkedArray;
+  }
+
   const getMonthDays = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    const firstDay = new Date(year, month, 1);
+    const firstDay = new Date(year, month, 0);
     const lastDay = new Date(year, month + 1, 0);
 
     const days = [];
+
     for (let i = 0; i < firstDay.getDay(); i++) {
       days.push(null);
     }
@@ -43,19 +52,14 @@ const Calendar: React.FC = () => {
         <button onClick={handlePrevMonth} className={css.monthsBtn}>
           prev
         </button>
-        <span>
-          {currentDate.toLocaleString("default", {
-            month: "long",
-            year: "2-digit",
-          })}
-        </span>
+        <span className={css.monthTitle}>November</span>
         <button onClick={handleNextMonth} className={css.monthsBtn}>
           next
         </button>
       </div>
       <table className={css.calendar}>
         <thead className={css.days}>
-          <tr className={css.daysList}>
+          <tr className={css.daysRow}>
             <th className={css.daysItem}>Mon</th>
             <th className={css.daysItem}>Tue</th>
             <th className={css.daysItem}>Wed</th>
@@ -66,13 +70,23 @@ const Calendar: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {getMonthDays().map((day, index) =>
-            index % 7 === 0 ? (
-              <tr key={index}></tr>
-            ) : (
-              <td key={index}>{day ? day.getDate() : ""}</td>
-            )
-          )}
+          {chunkArray(getMonthDays(), 7).map((week, index) => (
+            <tr className={css.daysRow} key={index}>
+              {week.map((day, index) => (
+                <>
+                  {day ? (
+                    <td className={css.dayCell} key={index}>
+                      {day.getDate()}
+                    </td>
+                  ) : (
+                    <td className={css.emptyCell} key={index}>
+                      {""}
+                    </td>
+                  )}
+                </>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

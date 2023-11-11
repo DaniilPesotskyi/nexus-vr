@@ -1,13 +1,109 @@
 .wrap {
-  width: 100%;
+  width: 320px;
+  margin: 0 auto;
 }
+
+@media screen and (min-width: 480px) {
+  .wrap {
+    width: 440px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    width: 565px;
+  }
+}
+
+/* MONTHS */
 
 .months {
   display: flex;
   justify-content: space-between;
 
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .monthsBtn {
+  width: 24px;
+  height: 24px;
+}
+
+.monthTitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: var(--main-light-text-clr);
+}
+
+/* DAYS */
+
+.daysRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  margin-bottom: 3px;
+}
+
+.daysItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 20px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--secondary-text-clr);
+}
+
+.dayCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--main-light-bg-clr);
+
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: var(--main-dark-text-clr);
+}
+
+.emptyCell {
+  width: 43px;
+  height: 43px;
+}
+
+@media screen and (min-width: 480px) {
+  .daysRow {
+    gap: 9px;
+    margin-bottom: 9px;
+  }
+
+  .daysItem {
+    width: 55px;
+  }
+
+  .dayCell {
+    width: 55px;
+    height: 55px;
+  }
+
+  .emptyCell {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .daysRow {
+    gap: 30px;
+    margin-bottom: 30px;
+  }
 }

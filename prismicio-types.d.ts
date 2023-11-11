@@ -206,6 +206,7 @@ export type GameDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<GameDocumentData>, "game", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | BookingSlice
   | RulesSlice
   | GamesSlice
   | AdvantagesSlice
