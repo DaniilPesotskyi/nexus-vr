@@ -75,7 +75,7 @@
   gap: 30px 15px;
 
   max-height: 310px;
-  margin: 0 auto;
+  margin: 0 auto 45px auto;
 }
 
 .timeItem {
@@ -130,6 +130,162 @@
   color: var(--secondary-text-clr);
 }
 
+.personIcon {
+  fill: var(--secondary-text-clr);
+}
+
+/* QNT AND PRICE */
+
+.qntAndPrice {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+
+  margin-bottom: 45px;
+}
+
+.quantityWrap {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.quantityLabel {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: var(--main-light-text-clr);
+}
+
+.quantityBtn {
+  width: 15px;
+  height: 15px;
+
+  border: 0;
+  background-color: transparent;
+}
+
+.quantityIcon {
+  fill: var(--main-light-stroke-clr);
+}
+
+.quantityValue {
+  margin: 0px 14px 0px 14px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: var(--main-light-text-clr);
+}
+
+.price {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: var(--main-light-text-clr);
+}
+
+.priceValue {
+  font-weight: 500;
+}
+
+/* PERSON DATA */
+
+.personData {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  margin-bottom: 40px;
+}
+
+.personDataBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.personDataInput {
+  width: 100%;
+  height: 45px;
+  padding: 13px;
+
+  border: 1px solid var(--main-light-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--main-light-text-clr);
+
+  outline: 0;
+  transition: all var(--transition-duration);
+}
+
+.personDataInput::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--secondary-text-clr);
+}
+
+.personDataInput:focus {
+  border: 1px solid var(--primary-clr);
+}
+
+.personDataTextArea {
+  width: 100%;
+  height: 125px;
+  padding: 13px;
+
+  border: 1px solid var(--main-light-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--main-light-text-clr);
+
+  outline: 0;
+  resize: none;
+  transition: all var(--transition-duration);
+}
+
+.personDataTextArea::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: var(--secondary-text-clr);
+}
+
+.personDataTextArea:focus {
+  border: 1px solid var(--primary-clr);
+}
+
+/* Reservation BTN */
+
+.reservationBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 60px;
+
+  border: 1px solid var(--main-light-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-size: 24px;
+  color: var(--main-light-text-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.reservationBtn:hover {
+  border: 1px solid transparent;
+  background-color: var(--primary-clr);
+  color: var(--main-dark-text-clr);
+}
+
 @media screen and (min-width: 480px) {
   .modal {
     padding-top: 40px;
@@ -139,8 +295,27 @@
     margin-bottom: 50px;
   }
 
+  .timeList {
+    margin-bottom: 55px;
+  }
+
   .timeLabel {
     gap: 15px;
+  }
+
+  /* QNT AND PRICE */
+
+  .qntAndPrice {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  /* Reservation BTN */
+
+  .reservationBtn {
+    width: 330px;
+    margin: 0 auto;
   }
 }
 
@@ -151,17 +326,48 @@
 
   .timeList {
     max-height: 210px;
+    margin-bottom: 65px;
   }
 
   .timeItem {
     flex-direction: row;
     align-items: center;
   }
+
+  /* PERSON DATA */
+
+  .personData {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+
+    margin-bottom: 55px;
+  }
+
+  .personDataBlock {
+    gap: 35px;
+  }
+
+  .personDataInput {
+    width: 328px;
+  }
+
+  .personDataTextArea {
+    width: 328px;
+  }
+
+  /* Reservation BTN */
+
+  .reservationBtn {
+    margin: 0;
+    margin-left: auto;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .modal {
-    padding: 70px;
+    padding: 40px 70px 70px 70px;
     width: 880px;
   }
 }
