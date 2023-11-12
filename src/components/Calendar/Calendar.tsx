@@ -4,9 +4,11 @@ import css from "./Calendar.module.css";
 
 import { useState } from "react";
 import cn from "classnames";
+import BookingModal from "./BookingModal/BookingModal";
 
 const Calendar: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handlePrevMonth = () => {
     setCurrentDate(
@@ -93,58 +95,64 @@ const Calendar: React.FC = () => {
   };
 
   return (
-    <div className={css.wrap}>
-      <div className={css.months}>
-        <button onClick={handlePrevMonth} className={css.monthsBtn}>
-          <ArrowIcon className={css.icon} />
-        </button>
-        <span className={css.monthTitle}>
-          {getMonthName(currentDate.getMonth() + 1)}
-        </span>
-        <button onClick={handleNextMonth} className={css.monthsBtn}>
-          <ArrowIcon className={css.icon} />
-        </button>
-      </div>
-      <table className={css.calendar}>
-        <thead className={css.days}>
-          <tr className={css.daysRow}>
-            <th className={css.daysItem}>Mon</th>
-            <th className={css.daysItem}>Tue</th>
-            <th className={css.daysItem}>Wed</th>
-            <th className={css.daysItem}>Thu</th>
-            <th className={css.daysItem}>Fri</th>
-            <th className={css.daysItem}>Sat</th>
-            <th className={css.daysItem}>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          {chunkArray(getMonthDays(), 7).map((week, index) => (
-            <tr className={css.daysRow} key={index}>
-              {week.map((day, index) => (
-                <>
-                  {day ? (
-                    <td
-                      className={cn(
-                        css.dayCell,
-                        day.isBeforeToday && css.disabled,
-                        day.isToday && css.active
-                      )}
-                      key={index}
-                    >
-                      {day.date.getDate()}
-                    </td>
-                  ) : (
-                    <td className={css.emptyCell} key={index}>
-                      {""}
-                    </td>
-                  )}
-                </>
-              ))}
+    <>
+      <div className={css.wrap}>
+        <div className={css.months}>
+          <button onClick={handlePrevMonth} className={css.monthsBtn}>
+            <ArrowIcon className={css.icon} />
+          </button>
+          <span className={css.monthTitle}>
+            {getMonthName(currentDate.getMonth() + 1)}
+          </span>
+          <button onClick={handleNextMonth} className={css.monthsBtn}>
+            <ArrowIcon className={css.icon} />
+          </button>
+        </div>
+        <table className={css.calendar}>
+          <thead className={css.days}>
+            <tr className={css.daysRow}>
+              <th className={css.daysItem}>Mon</th>
+              <th className={css.daysItem}>Tue</th>
+              <th className={css.daysItem}>Wed</th>
+              <th className={css.daysItem}>Thu</th>
+              <th className={css.daysItem}>Fri</th>
+              <th className={css.daysItem}>Sat</th>
+              <th className={css.daysItem}>Sun</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {chunkArray(getMonthDays(), 7).map((week, index) => (
+              <tr className={css.daysRow} key={index}>
+                {week.map((day, index) => (
+                  <>
+                    {day ? (
+                      <td
+                        className={cn(
+                          css.dayCell,
+                          day.isBeforeToday && css.disabled,
+                          day.isToday && css.active
+                        )}
+                        onClick={() => setIsModalOpen(true)}
+                        key={index}
+                      >
+                        {day.date.getDate()}
+                      </td>
+                    ) : (
+                      <td className={css.emptyCell} key={index}>
+                        {""}
+                      </td>
+                    )}
+                  </>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {isModalOpen && (
+        <BookingModal onClose={() => setIsModalOpen(!isModalOpen)} />
+      )}
+    </>
   );
 };
 
