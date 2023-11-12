@@ -5,6 +5,7 @@
 
   width: 100%;
   height: 100%;
+  overflow: auto;
 
   background: var(--backdrop-clr);
 
@@ -13,15 +14,16 @@
 
 .modal {
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -45vh);
 
   width: 100%;
+  height: fit-content;
   padding: 30px 20px;
 
-  border-top-right-radius: 70px;
-  border-top-left-radius: 70px;
+  border-radius: 70px;
+  overflow: auto;
 
   background-color: var(--main-dark-bg-clr);
 }
@@ -73,6 +75,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 30px 15px;
+  align-content: space-between;
 
   max-height: 310px;
   margin: 0 auto 45px auto;
@@ -100,6 +103,10 @@
   background-color: white;
 
   transition: all var(--transition-duration);
+}
+
+.timeInput:hover + .timeIcon {
+  background-color: #e2faac;
 }
 
 .timeInput:checked + .timeIcon {
@@ -163,6 +170,8 @@
 
   border: 0;
   background-color: transparent;
+
+  cursor: pointer;
 }
 
 .quantityIcon {
@@ -226,6 +235,10 @@
   color: var(--secondary-text-clr);
 }
 
+.personDataInput:hover {
+  border: 1px solid var(--primary-clr);
+}
+
 .personDataInput:focus {
   border: 1px solid var(--primary-clr);
 }
@@ -252,6 +265,10 @@
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   color: var(--secondary-text-clr);
+}
+
+.personDataTextArea:hover {
+  border: 1px solid var(--primary-clr);
 }
 
 .personDataTextArea:focus {

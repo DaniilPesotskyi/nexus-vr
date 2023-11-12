@@ -211,7 +211,7 @@ const BookingModal: React.FC<IProps> = ({ onClose }) => {
             </div>
           </div>
           <p className={css.price}>
-            Price: <span className={css.priceValue}>{onCountPrice()}</span>
+            Price: <span className={css.priceValue}>{onCountPrice()}</span> UAH
           </p>
         </div>
 
@@ -234,7 +234,7 @@ const BookingModal: React.FC<IProps> = ({ onClose }) => {
           ></textarea>
         </div>
 
-        <button className={css.reservationBtn} type="button">
+        <button className={css.reservationBtn} type="button" onClick={onClose}>
           MAKE A RESERVATION
         </button>
       </div>

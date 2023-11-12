@@ -8,7 +8,7 @@ import BookingModal from "./BookingModal/BookingModal";
 
 const Calendar: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handlePrevMonth = () => {
     setCurrentDate(

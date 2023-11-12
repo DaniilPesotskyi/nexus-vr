@@ -24,14 +24,9 @@ const GameCard: React.FC<IProps> = ({ item }) => {
             ),
           }}
         />
-        <div className={css.actions}>
-          <button type="button" className={css.bookingBtn}>
-            BOOKING
-          </button>
-          <button type="button" className={css.detailsBtn}>
-            Details
-          </button>
-        </div>
+        <button type="button" className={css.bookingBtn}>
+          BOOKING
+        </button>
       </div>
     </div>
   );
