@@ -7,6 +7,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 import Heading from "@/components/Heading/Heading";
 import Slider from "@/components/Slider/Slider";
+import { PrismicNextLink } from "@prismicio/next";
 
 export type GamesProps = SliceComponentProps<Content.GamesSlice>;
 
@@ -35,10 +36,9 @@ const Games = async ({ slice }: GamesProps): Promise<JSX.Element> => {
 
         {/* SLIDER */}
         <Slider items={games} />
-
-        <button type="button" className={css.btn}>
-          See all games
-        </button>
+        <PrismicNextLink field={slice.primary.button_link} className={css.btn}>
+          {slice.primary.button_text}
+        </PrismicNextLink>
       </div>
     </section>
   );

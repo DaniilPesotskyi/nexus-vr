@@ -32,9 +32,12 @@ const Footer: React.FC = async () => {
           <button type="button" className={css.menuBtn}>
             <MenuIcon className={css.icon} />
           </button>
-          <button className={css.bookingBtn} type="button">
-            Booking
-          </button>
+          <PrismicNextLink
+            field={settings.data.button_link}
+            className={css.bookingBtn}
+          >
+            {settings.data.button_text}
+          </PrismicNextLink>
         </div>
         <div className={css.mid}>
           <ul className={css.contactsList}>
@@ -52,10 +55,18 @@ const Footer: React.FC = async () => {
             {footer.data.socials.map(({ icon, link }, index) => (
               <li key={index} className={css.socialsItem}>
                 <PrismicNextLink field={link}>
-                  {icon === "instagram" && <InstagramIcon />}
-                  {icon === "facebook" && <FacebookIcon />}
-                  {icon === "telegram" && <TelegramIcon />}
-                  {icon === "youtube" && <YouTubeIcon />}
+                  {icon === "instagram" && (
+                    <InstagramIcon className={css.socialsIcon} />
+                  )}
+                  {icon === "facebook" && (
+                    <FacebookIcon className={css.socialsIcon} />
+                  )}
+                  {icon === "telegram" && (
+                    <TelegramIcon className={css.socialsIcon} />
+                  )}
+                  {icon === "youtube" && (
+                    <YouTubeIcon className={css.socialsIcon} />
+                  )}
                 </PrismicNextLink>
               </li>
             ))}

@@ -28,9 +28,12 @@ const Header: React.FC = async () => {
         <button type="button" className={css.menuBtn}>
           <MenuIcon />
         </button>
-        <button className={css.bookingBtn} type="button">
-          Booking
-        </button>
+        <PrismicNextLink
+          field={settings.data.button_link}
+          className={css.bookingBtn}
+        >
+          {settings.data.button_text}
+        </PrismicNextLink>
       </div>
     </header>
   );
