@@ -27,9 +27,11 @@
 
 .title {
   margin-bottom: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   font-family: "Epilogue", sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 500;
   color: var(--main-light-text-clr);
 }
@@ -80,6 +82,10 @@
   .wrap {
     width: 350px;
     height: 460px;
+  }
+
+  .title {
+    font-size: 32px;
   }
 
   .overlay {

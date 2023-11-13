@@ -1,0 +1,173 @@
+.wrap {
+  width: fit-content;
+  margin: 0px 30px 0px auto;
+}
+
+.openMenuBtn {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background-color: transparent;
+}
+
+.openMenuIcon.light {
+  fill: var(--main-light-stroke-clr);
+}
+
+@media screen and (min-width: 1200px) {
+  .wrap {
+    display: none;
+  }
+}
+
+/* MENU */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  background: var(--backdrop-clr);
+
+  z-index: 22;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+
+  overflow: auto;
+
+  background-color: var(--main-dark-bg-clr);
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  margin-left: auto;
+  margin-bottom: 5px;
+
+  border: 0;
+  background-color: transparent;
+}
+
+.closeIcon {
+  stroke: var(--main-light-stroke-clr);
+}
+
+.navigationList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  margin-bottom: 40px;
+}
+
+.link {
+  font-family: "Epilogue", sans-serif;
+  font-size: 17px;
+  color: var(--main-light-text-clr);
+  text-align: center;
+}
+
+.bookingBtn {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  height: 55px;
+  padding: 0px 55px;
+  margin: 0 auto 70px auto;
+
+  border: 1px solid var(--main-light-stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: transparent;
+
+  font-family: "Epilogue", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main-light-text-clr);
+
+  cursor: pointer;
+
+  transition: all var(--transition-duration);
+}
+
+.bookingBtn:hover {
+  border: 1px solid transparent;
+  background-color: var(--primary-clr);
+  box-shadow: var(--box-shadow);
+  color: var(--main-dark-text-clr);
+}
+
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  margin-bottom: 40px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+
+  width: fit-content;
+  margin: 0 auto;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  color: var(--main-light-text-clr);
+  text-align: center;
+}
+
+.contactIcon {
+  fill: var(--main-light-stroke-clr);
+}
+
+.socialsList {
+  display: flex;
+  gap: 25px;
+
+  width: fit-content;
+  margin: 0 auto 50px auto;
+}
+
+.copy {
+  margin-bottom: 15px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: var(--main-light-text-clr);
+  text-align: center;
+}
+
+.ghlink {
+  display: block;
+  
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: var(--main-light-text-clr);
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 480px;
+  }
+}
