@@ -45,16 +45,12 @@ const Calendar: React.FC = () => {
     for (let i = 1; i <= lastDay.getDate(); i++) {
       const day = new Date(year, month, i);
 
-      const isBeforeToday =
-        day.getTime() < today.getTime() && day.getDate() !== today.getDate();
-
-      // const isBeforeToday =
-      //   day.getTime() < today.getTime() && day.getDate() !== today.getDate();
-
       const isToday =
         day.getDate() === today.getDate() &&
         day.getMonth() === today.getMonth() &&
         day.getFullYear() === today.getFullYear();
+
+      const isBeforeToday = day.getTime() < today.getTime() && !isToday;
 
       days.push({
         date: day,
