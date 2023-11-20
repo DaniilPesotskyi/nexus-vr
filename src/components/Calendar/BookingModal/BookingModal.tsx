@@ -3,6 +3,7 @@
 import css from "./BookingModal.module.css";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 interface IProps {
   onClose: () => void;
@@ -49,8 +50,18 @@ const BookingModal: React.FC<IProps> = ({ onClose }) => {
   };
 
   return (
-    <div className={css.backdrop}>
-      <div className={css.modal}>
+    <motion.div
+      className={css.backdrop}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      animate={{ opacity: 1 }}
+    >
+      <motion.div
+        className={css.modal}
+        initial={{ opacity: 0}}
+        transition={{ duration: 0.4 }}
+        animate={{ opacity: 1}}
+      >
         <button className={css.closeBtn} type="button" onClick={onClose}>
           Close
           <CloseIcon className={css.closeIcon} />
@@ -237,8 +248,8 @@ const BookingModal: React.FC<IProps> = ({ onClose }) => {
         <button className={css.reservationBtn} type="button" onClick={onClose}>
           MAKE A RESERVATION
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

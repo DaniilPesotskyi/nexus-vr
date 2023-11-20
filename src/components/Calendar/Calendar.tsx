@@ -48,6 +48,9 @@ const Calendar: React.FC = () => {
       const isBeforeToday =
         day.getTime() < today.getTime() && day.getDate() !== today.getDate();
 
+      // const isBeforeToday =
+      //   day.getTime() < today.getTime() && day.getDate() !== today.getDate();
+
       const isToday =
         day.getDate() === today.getDate() &&
         day.getMonth() === today.getMonth() &&
@@ -94,6 +97,13 @@ const Calendar: React.FC = () => {
     }
   };
 
+  const handleCellClick = (isBefore: Boolean) => {
+    if (isBefore) {
+      return;
+    }
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <div className={css.wrap}>
@@ -132,7 +142,7 @@ const Calendar: React.FC = () => {
                           day.isBeforeToday && css.disabled,
                           day.isToday && css.active
                         )}
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() => handleCellClick(day.isBeforeToday)}
                         key={index}
                       >
                         {day.date.getDate()}
